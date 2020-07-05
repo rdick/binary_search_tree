@@ -104,9 +104,22 @@ class BinarySearchTree {
             if (node.right) traverse(node.right)
             data.push(node.val)
         }
-
         traverse(current)
         return data
+    }
+    dfs_inorder() {
+        let data = []
+
+        let current = this.root
+
+        const traverse = node => {
+            if (node.left) traverse(node.left)
+            data.push(node.val)
+            if (node.right) traverse(node.right)
+        }
+        traverse(current)
+        return data
+
     }
 }
 
@@ -124,7 +137,7 @@ tree.insert(15)
 tree.insert(3)
 tree.insert(8)
 tree.insert(20)
-tree.dfs_preorder()
+tree.dfs_inorder()
 
 
 
